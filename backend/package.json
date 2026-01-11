@@ -8,6 +8,10 @@
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "keywords": ["resume", "matching", "ai"],
   "author": "",
   "license": "MIT",

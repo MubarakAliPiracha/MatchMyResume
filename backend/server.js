@@ -8,7 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Configure multer for file uploads

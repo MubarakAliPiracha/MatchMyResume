@@ -233,6 +233,26 @@ OPENAI_API_KEY=your_api_key_here
 - No unused dependencies
 - Error handling throughout
 
+## Deployment
+
+The application can be deployed to various platforms. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy
+
+**Backend (Railway/Render):**
+- Connect your GitHub repository
+- Select the `backend` folder
+- Set environment variables
+- Deploy automatically
+
+**Frontend (Vercel/Netlify):**
+- Connect your GitHub repository
+- Select the `frontend` folder
+- Set `VITE_API_URL` environment variable
+- Deploy automatically
+
+For step-by-step instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## License
 
 MIT
