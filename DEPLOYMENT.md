@@ -1,194 +1,112 @@
 # Deployment Guide
 
-This guide will help you deploy both the backend and frontend of the Resume Match AI application.
+> **Recommended**: Use [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) for free permanent hosting (Render + Vercel)
 
-## Deployment Options
-
-### Recommended Setup
-- **Backend**: Railway.app or Render.com (free tier available)
-- **Frontend**: Vercel.com or Netlify.com (free tier available)
+This guide covers multiple deployment options for the Resume Match AI application.
 
 ---
 
-## Step 1: Deploy Backend
+## 🎯 Recommended: Free & Permanent Setup
 
-### Option A: Deploy to Railway
+**Best for portfolio projects and recruiters:**
 
-1. **Sign up/Login to Railway**
-   - Go to [railway.app](https://railway.app)
-   - Sign up with GitHub
+- **Backend**: Render.com (Free tier - permanent)
+- **Frontend**: Vercel.com (Free tier - permanent)
+- **Cost**: $0/month forever
+- **Setup Time**: 10-15 minutes
 
-2. **Create New Project**
-   - Click "New Project"
-   - Select "Deploy from GitHub repo"
-   - Choose your `MatchMyResume` repository
-   - Select the `backend` folder as the root directory
-
-3. **Configure Environment Variables**
-   - Go to the Variables tab
-   - Add:
-     ```
-     NODE_ENV=production
-     FRONTEND_URL=https://your-frontend-url.vercel.app
-     ```
-   - Railway will automatically set `PORT`
-
-4. **Deploy**
-   - Railway will automatically detect Node.js and deploy
-   - Wait for deployment to complete
-   - Copy your backend URL (e.g., `https://your-app.railway.app`)
-
-### Option B: Deploy to Render
-
-1. **Sign up/Login to Render**
-   - Go to [render.com](https://render.com)
-   - Sign up with GitHub
-
-2. **Create New Web Service**
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository
-   - Configure:
-     - **Name**: `resume-match-api`
-     - **Root Directory**: `backend`
-     - **Environment**: `Node`
-     - **Build Command**: `npm install`
-     - **Start Command**: `npm start`
-
-3. **Configure Environment Variables**
-   - In the Environment section, add:
-     ```
-     NODE_ENV=production
-     FRONTEND_URL=https://your-frontend-url.vercel.app
-     ```
-
-4. **Deploy**
-   - Click "Create Web Service"
-   - Wait for deployment
-   - Copy your backend URL (e.g., `https://resume-match-api.onrender.com`)
+👉 **See [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) for detailed instructions**
 
 ---
 
-## Step 2: Deploy Frontend
+## Alternative Deployment Options
 
-### Option A: Deploy to Vercel (Recommended)
+### Backend Options
 
-1. **Sign up/Login to Vercel**
-   - Go to [vercel.com](https://vercel.com)
-   - Sign up with GitHub
+#### Option 1: Render.com (Recommended - Free)
+- ✅ Free tier available (permanent)
+- ⏰ Sleeps after 15 min inactivity (wakes automatically)
+- 📊 750 hours/month free
+- 🔗 [render.com](https://render.com)
 
-2. **Import Project**
-   - Click "Add New" → "Project"
-   - Import your GitHub repository
-   - Configure:
-     - **Framework Preset**: Vite
-     - **Root Directory**: `frontend`
-     - **Build Command**: `npm run build`
-     - **Output Directory**: `dist`
+See [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) for setup.
 
-3. **Set Environment Variables**
-   - Go to Settings → Environment Variables
-   - Add:
-     ```
-     VITE_API_URL=https://your-backend-url.railway.app/api
-     ```
-     (Replace with your actual backend URL from Step 1)
+#### Option 2: Fly.io (Free - No Sleep)
+- ✅ Free tier: 3 shared-cpu VMs (256MB each)
+- ⚡ No sleep time
+- 📦 More complex setup (CLI required)
+- 🔗 [fly.io](https://fly.io)
 
-4. **Deploy**
-   - Click "Deploy"
-   - Wait for deployment
-   - Copy your frontend URL (e.g., `https://your-app.vercel.app`)
-
-5. **Update Backend CORS**
-   - Go back to your backend deployment (Railway/Render)
-   - Update the `FRONTEND_URL` environment variable with your Vercel URL
-   - Redeploy the backend
-
-### Option B: Deploy to Netlify
-
-1. **Sign up/Login to Netlify**
-   - Go to [netlify.com](https://netlify.com)
-   - Sign up with GitHub
-
-2. **Import Project**
-   - Click "Add new site" → "Import an existing project"
-   - Connect your GitHub repository
-   - Configure:
-     - **Base directory**: `frontend`
-     - **Build command**: `npm run build`
-     - **Publish directory**: `frontend/dist`
-
-3. **Set Environment Variables**
-   - Go to Site settings → Environment variables
-   - Add:
-     ```
-     VITE_API_URL=https://your-backend-url.railway.app/api
-     ```
-     (Replace with your actual backend URL from Step 1)
-
-4. **Deploy**
-   - Click "Deploy site"
-   - Wait for deployment
-   - Copy your frontend URL
-
-5. **Update Backend CORS**
-   - Update the `FRONTEND_URL` in your backend with your Netlify URL
-   - Redeploy the backend
-
----
-
-## Quick Deploy Scripts
-
-### Using Railway CLI (Backend)
-
+**Setup:**
 ```bash
-# Install Railway CLI
-npm i -g @railway/cli
-
-# Login
-railway login
-
-# Initialize and deploy
+npm install -g flyctl
 cd backend
-railway init
-railway up
+fly launch
+# Follow prompts
 ```
 
-### Using Vercel CLI (Frontend)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Login
-vercel login
-
-# Deploy
-cd frontend
-vercel
-```
+#### Option 3: Heroku (Paid)
+- ⚠️ No free tier (as of Nov 2022)
+- 💰 Starts at $7/month
+- 🔗 [heroku.com](https://heroku.com)
 
 ---
 
-## Environment Variables Summary
+### Frontend Options
 
-### Backend (.env)
+#### Option 1: Vercel (Recommended - Free)
+- ✅ Free tier (permanent, unlimited for personal projects)
+- ⚡ Instant deployments
+- 🌐 Custom domains available
+- 🔗 [vercel.com](https://vercel.com)
+
+See [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) for setup.
+
+#### Option 2: Netlify (Free)
+- ✅ Free tier (permanent)
+- ⚡ Instant deployments
+- 🌐 Custom domains available
+- 🔗 [netlify.com](https://netlify.com)
+
+**Setup:**
+1. Sign up at [netlify.com](https://netlify.com)
+2. Import GitHub repository
+3. Set build directory to `frontend`
+4. Set publish directory to `frontend/dist`
+5. Add environment variable: `VITE_API_URL`
+6. Deploy!
+
+---
+
+## Environment Variables
+
+### Backend
+
+**Render/Heroku/Fly.io:**
 ```
-PORT=3001 (auto-set by hosting)
 NODE_ENV=production
-FRONTEND_URL=https://your-frontend.vercel.app
+FRONTEND_URL=https://your-frontend-url.vercel.app
+PORT=10000 (auto-set by Render, don't override)
 ```
 
-### Frontend (.env.production)
+### Frontend
+
+**Vercel/Netlify:**
 ```
-VITE_API_URL=https://your-backend.railway.app/api
+VITE_API_URL=https://your-backend-url.onrender.com/api
 ```
+
+⚠️ **Important**: 
+- Backend URL must include `/api` at the end
+- Frontend URL must include `https://` protocol
+- No trailing slashes
 
 ---
 
 ## Testing Deployment
 
 1. **Test Backend Health**
-   - Visit: `https://your-backend-url.railway.app/health`
+   - Visit: `https://your-backend-url.onrender.com/health`
    - Should return: `{"status":"ok"}`
 
 2. **Test Frontend**
@@ -202,36 +120,59 @@ VITE_API_URL=https://your-backend.railway.app/api
 ## Troubleshooting
 
 ### CORS Errors
-- Make sure `FRONTEND_URL` in backend matches your frontend domain exactly
-- Check that the frontend URL includes `https://` protocol
+- Verify `FRONTEND_URL` in backend matches your frontend domain exactly
+- Include `https://` protocol (no trailing slash)
+- Redeploy backend after changing environment variables
 
-### API Not Found
-- Verify `VITE_API_URL` in frontend includes `/api` at the end
-- Check that backend is deployed and running
+### API Not Found (404)
+- Check `VITE_API_URL` includes `/api` at the end
+- Verify backend is deployed and running
+- Check backend logs for errors
+
+### Backend Sleep (Render Free Tier)
+- **Normal behavior**: First request after 15 min inactivity takes 30-50 seconds
+- Backend wakes automatically
+- Subsequent requests are instant
+- **Solution**: Upgrade to paid plan ($7/month) or use Fly.io
 
 ### Build Failures
-- Check Node.js version (should be 18+)
-- Review build logs for dependency issues
-- Ensure all environment variables are set
+- Check deployment logs
+- Verify Node.js version (18+)
+- Ensure root directory is set correctly:
+  - Backend: `backend`
+  - Frontend: `frontend`
+- Check all dependencies are in package.json
 
 ---
 
-## Cost
+## Cost Comparison
 
-All recommended platforms offer free tiers:
-- **Railway**: Free tier with $5 credit/month
-- **Render**: Free tier (sleeps after inactivity)
-- **Vercel**: Free tier (generous limits)
-- **Netlify**: Free tier (generous limits)
+| Platform | Free Tier | Paid Plans | Best For |
+|----------|-----------|------------|----------|
+| **Render** | ✅ Permanent | $7+/month | Portfolio projects |
+| **Vercel** | ✅ Permanent | $20+/month | Frontend hosting |
+| **Netlify** | ✅ Permanent | $19+/month | Frontend hosting |
+| **Fly.io** | ✅ Permanent | $1.94+/month | Backend (no sleep) |
+| **Heroku** | ❌ None | $7+/month | Legacy projects |
 
-For production use, consider upgrading to paid plans for better performance and uptime.
+**Recommended**: Render (Backend) + Vercel (Frontend) = **$0/month forever**
 
 ---
 
 ## Support
 
-If you encounter issues:
-1. Check deployment logs
+For issues:
+1. Check deployment logs in your hosting platform
 2. Verify environment variables
 3. Test endpoints using Postman or curl
 4. Review platform-specific documentation
+5. See [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) for detailed troubleshooting
+
+---
+
+## Quick Links
+
+- [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) - **Recommended**: Free permanent setup
+- [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) - Fast deployment guide
+- Render Docs: https://render.com/docs
+- Vercel Docs: https://vercel.com/docs

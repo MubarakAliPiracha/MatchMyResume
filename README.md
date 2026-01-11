@@ -233,25 +233,34 @@ OPENAI_API_KEY=your_api_key_here
 - No unused dependencies
 - Error handling throughout
 
-## Deployment
+## Deployment (FREE & PERMANENT)
 
-The application can be deployed to various platforms. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+Deploy your application **completely free forever** using:
 
-### Quick Deploy
+- **Backend**: [Render.com](https://render.com) (Free tier - permanent)
+- **Frontend**: [Vercel.com](https://vercel.com) (Free tier - permanent)
 
-**Backend (Railway/Render):**
-- Connect your GitHub repository
-- Select the `backend` folder
-- Set environment variables
-- Deploy automatically
+### Quick Deploy (10-15 minutes)
 
-**Frontend (Vercel/Netlify):**
-- Connect your GitHub repository
-- Select the `frontend` folder
-- Set `VITE_API_URL` environment variable
-- Deploy automatically
+**Backend to Render:**
+1. Sign up at [render.com](https://render.com) with GitHub
+2. Create new Web Service
+3. Connect your repo and set Root Directory to `backend`
+4. Select **Free** plan (permanent, no trial)
+5. Deploy!
 
-For step-by-step instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+**Frontend to Vercel:**
+1. Sign up at [vercel.com](https://vercel.com) with GitHub
+2. Import your repo
+3. Set Root Directory to `frontend`
+4. Add environment variable: `VITE_API_URL` = `https://your-backend-url.onrender.com/api`
+5. Deploy!
+
+**Total Cost: $0/month - Forever!**
+
+For detailed step-by-step instructions, see:
+- [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) - Fast setup guide
+- [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md) - Complete deployment guide
 
 ## License
 

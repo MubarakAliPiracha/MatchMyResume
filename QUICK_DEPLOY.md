@@ -1,153 +1,120 @@
-# Quick Deployment Guide
+# Quick Deployment Guide (FREE & PERMANENT)
 
-Follow these steps to deploy your Resume Match AI application in under 10 minutes.
+Deploy your Resume Match AI **forever for free** using Render + Vercel.
 
-## Prerequisites
-- GitHub account (already have ✅)
-- Repository pushed to GitHub (already done ✅)
+⏱️ **Total time: 10-15 minutes**
 
 ---
 
-## 🚀 Step-by-Step Deployment
+## 🚀 Step 1: Deploy Backend to Render (Free Forever)
 
-### 1️⃣ Deploy Backend to Railway (Recommended)
+**Time: 5-7 minutes**
 
-**Time: 3-5 minutes**
+1. Go to [render.com](https://render.com) → Sign up with GitHub
 
-1. Go to [railway.app](https://railway.app)
-2. Click **"Start a New Project"**
-3. Select **"Deploy from GitHub repo"**
-4. Choose your repository: `MubarakAliPiracha/MatchMyResume`
-5. Click **"Configure"** next to the repo
-6. In the settings:
-   - **Root Directory**: `backend`
-   - **Build Command**: Leave default (auto-detected)
-   - **Start Command**: Leave default (auto-detected)
-7. Click **"Deploy"**
-8. Wait for deployment (2-3 minutes)
-9. **Copy your backend URL** (e.g., `https://resume-match-api-production.up.railway.app`)
-   - You'll find it in the "Settings" tab → "Domains"
-
-**Environment Variables (Optional for now):**
-- Go to "Variables" tab
-- Add: `NODE_ENV=production`
-- We'll add `FRONTEND_URL` after deploying the frontend
-
----
-
-### 2️⃣ Deploy Frontend to Vercel (Recommended)
-
-**Time: 3-5 minutes**
-
-1. Go to [vercel.com](https://vercel.com)
-2. Click **"Sign Up"** (use GitHub)
-3. Click **"Add New..."** → **"Project"**
-4. Import your repository: `MubarakAliPiracha/MatchMyResume`
-5. Configure:
-   - **Framework Preset**: Vite (auto-detected)
-   - **Root Directory**: `frontend` (click "Edit" and change to `frontend`)
-   - **Build Command**: `npm run build` (auto-detected)
-   - **Output Directory**: `dist` (auto-detected)
-6. Go to **"Environment Variables"**:
-   - Add: `VITE_API_URL` = `https://your-backend-url.railway.app/api`
-     (Replace with your actual Railway backend URL from Step 1, including `/api`)
-7. Click **"Deploy"**
-8. Wait for deployment (2-3 minutes)
-9. **Copy your frontend URL** (e.g., `https://match-my-resume.vercel.app`)
-
----
-
-### 3️⃣ Update Backend CORS
-
-**Time: 1 minute**
-
-1. Go back to Railway dashboard
-2. Select your backend project
-3. Go to **"Variables"** tab
-4. Add/Update:
-   - `FRONTEND_URL` = `https://your-frontend-url.vercel.app`
-     (Replace with your actual Vercel frontend URL)
-5. Railway will automatically redeploy
-
----
-
-### 4️⃣ Test Your Deployment
-
-1. Visit your frontend URL
-2. Upload a resume (PDF or DOCX)
-3. Paste a job description
-4. Click "Analyze Match"
-5. Check the results!
-
----
-
-## 🔧 Alternative: Deploy to Render
-
-If you prefer Render over Railway:
-
-### Backend on Render:
-1. Go to [render.com](https://render.com)
 2. Click **"New +"** → **"Web Service"**
-3. Connect GitHub repository
+
+3. Connect GitHub → Select `MubarakAliPiracha/MatchMyResume`
+
 4. Configure:
    - **Name**: `resume-match-api`
-   - **Root Directory**: `backend`
+   - **Root Directory**: `backend` ⚠️ **IMPORTANT**
    - **Environment**: `Node`
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
-5. Add environment variable: `NODE_ENV=production`
-6. Click **"Create Web Service"**
-7. Copy your backend URL
+   - **Plan**: Select **"Free"** (permanent, no trial)
+
+5. Click **"Create Web Service"**
+
+6. Wait 5-7 minutes for deployment
+
+7. **Copy your backend URL**: `https://resume-match-api.onrender.com`
+
+**Note**: Render free tier sleeps after 15 min inactivity (wakes automatically on request)
 
 ---
 
-## 🆘 Troubleshooting
+## 🌐 Step 2: Deploy Frontend to Vercel (Free Forever)
 
-### Issue: CORS Error
-**Solution**: Make sure `FRONTEND_URL` in backend matches your frontend URL exactly (including `https://`)
+**Time: 3-5 minutes**
 
-### Issue: API Not Working
-**Solution**: 
-- Check that `VITE_API_URL` in frontend ends with `/api`
-- Verify backend is running (check Railway/Render logs)
-- Test backend health endpoint: `https://your-backend-url/health`
+1. Go to [vercel.com](https://vercel.com) → Sign up with GitHub
 
-### Issue: Build Fails
-**Solution**:
-- Check Node.js version (need 18+)
-- Review deployment logs
-- Verify all environment variables are set
+2. Click **"Add New..."** → **"Project"**
 
----
+3. Import `MubarakAliPiracha/MatchMyResume`
 
-## ✅ Success Checklist
+4. Configure:
+   - **Root Directory**: `frontend` ⚠️ **IMPORTANT**
+   - **Framework**: Vite (auto-detected)
+   - **Build Command**: `npm run build` (auto)
+   - **Output Directory**: `dist` (auto)
 
-- [ ] Backend deployed and accessible
-- [ ] Frontend deployed and accessible
-- [ ] Backend URL copied
-- [ ] Frontend URL copied
-- [ ] `VITE_API_URL` set in frontend
-- [ ] `FRONTEND_URL` set in backend
-- [ ] Application tested and working
+5. **Environment Variables**:
+   - Key: `VITE_API_URL`
+   - Value: `https://your-backend-url.onrender.com/api`
+     (Use your Render URL from Step 1 + `/api`)
+
+6. Click **"Deploy"**
+
+7. Wait 2-3 minutes → **Copy your frontend URL**
 
 ---
 
-## 📝 Your Deployment URLs
+## 🔄 Step 3: Connect Frontend & Backend
 
-After deployment, note down:
+**Time: 1 minute**
 
-- **Backend URL**: `_________________________`
-- **Frontend URL**: `_________________________`
+1. **Go back to Render** → Your backend service
 
-Save these URLs for future reference!
+2. **Environment** tab → Add:
+   - Key: `FRONTEND_URL`
+   - Value: `https://your-frontend-url.vercel.app`
+     (Use your Vercel URL from Step 2)
+
+3. Render auto-redeploys ✅
 
 ---
 
-## 🎉 You're Done!
+## ✅ Step 4: Test
 
-Your Resume Match AI application is now live on the internet! Share your frontend URL with others to use the application.
+1. Visit your **Vercel frontend URL**
+2. Upload resume + paste job description
+3. Click "Analyze Match"
+4. Should work! 🎉
 
-**Next Steps:**
-- Share your application
-- Monitor usage in Railway/Vercel dashboards
-- Consider upgrading to paid plans for production use
+---
+
+## 💰 Cost: $0/month - Forever!
+
+- ✅ Render: Free tier (permanent)
+- ✅ Vercel: Free tier (permanent)
+- ✅ **Total: $0/month - No trials, no expiration**
+
+---
+
+## 🆘 Quick Troubleshooting
+
+**Backend slow first request?**
+- Normal! Render free tier sleeps after 15 min
+- First request after sleep takes 30-50 seconds
+- Subsequent requests are instant
+
+**CORS Error?**
+- Check `FRONTEND_URL` in Render matches Vercel URL exactly
+- Include `https://` protocol
+
+**API not working?**
+- Verify `VITE_API_URL` ends with `/api`
+- Test backend: `https://your-backend-url.onrender.com/health`
+
+---
+
+## 📝 Save These URLs
+
+- **Backend**: `https://____________________.onrender.com`
+- **Frontend**: `https://____________________.vercel.app`
+
+Share your frontend URL with recruiters - it's **permanent and free**! 🚀
+
+For detailed instructions, see [FREE_DEPLOYMENT.md](./FREE_DEPLOYMENT.md)
