@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalist - Log In</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="signup-section">
+            <!-- Form Section (Left - White Background) -->
+            <div class="section form-section">
+                <div class="section-content">
+                    <!-- Container with form -->
+                    <div class="container">
+                        <!-- Form -->
+                        <div class="form">
+                            <div class="form-head">
+                                <h1 class="title">Log In Your Account</h1>
+                            </div>
+
+                            <div class="content">
+                                <div class="input-fields">
+                                    <!-- Email Input -->
+                                    <div class="input-field">
+                                        <div class="input-with-label">
+                                            <label class="label" for="email">Email</label>
+                                            <div class="input">
+                                                <div class="input-content">
+                                                    <input type="email" id="email" class="input-text" placeholder="Enter your email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Password Input -->
+                                    <div class="input-field">
+                                        <div class="input-with-label">
+                                            <label class="label" for="password">Password</label>
+                                            <div class="input">
+                                                <div class="input-content">
+                                                    <input type="password" id="password" class="input-text" placeholder="Enter a strong password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Log In Button -->
+                            <button type="button" class="button">
+                                <span class="button-label">Log In</span>
+                            </button>
+
+                            <!-- Sign Up Link -->
+                            <div class="signup-link">
+                                Don't have an account? Sign Up
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logo (Absolutely Positioned) -->
+                    <div class="logo-head">
+                        <div class="logo">
+                            <img src="./assets/logo.svg" alt="Signalist Logo" class="logo-icon" onerror="console.error('Logo failed to load')">
+                            <span class="logo-text">Signalist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Section (Right - Dark Background) -->
+            <div class="section quote-section">
+                <!-- Quote and Attribution -->
+                <div class="quote-attribution">
+                    <p class="quote">
+                        Signalist turned my watchlist into a winning list. The alerts are spot-on, and I feel more confident making moves in the market
+                    </p>
+                    <div class="text-and-stars">
+                        <div class="text-supporting">
+                            <p class="text">— Ethan R.</p>
+                            <p class="supporting-text">Retail Investor</p>
+                        </div>
+                        <img src="./assets/stars.svg" alt="5 stars" class="stars" onerror="console.error('Stars failed to load')">
+                    </div>
+                </div>
+
+                <!-- Screen Mockup -->
+                <div class="screen-mockup-wrapper">
+                    <div class="mockup-shadow"></div>
+                    <div class="screen-mockup">
+                        <img src="./assets/mockup-1b717c.png" alt="App Screenshot" class="mockup-image" onerror="console.error('Mockup failed to load')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
